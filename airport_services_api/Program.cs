@@ -1,3 +1,5 @@
+using airport_services_api.Middleware;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +8,8 @@ builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+app.UseMiddleware<ApiExceptionMiddleware>();
 
 var app = builder.Build();
 
