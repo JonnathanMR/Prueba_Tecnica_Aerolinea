@@ -12,7 +12,12 @@ namespace airport_services_api.Controllers
     [Route("[controller]")]
     public class FlightsController : ControllerBase
     {
-        private readonly AirlineServicesContext? _airlineServicesContext;
+        private readonly AirlineServicesContext _airlineServicesContext;
+
+        public FlightsController(AirlineServicesContext airlineServicesContext)
+        {
+            _airlineServicesContext = airlineServicesContext;
+        }
 
         [HttpGet]
         public async Task<IActionResult> GetAllFlights() {
